@@ -14,7 +14,6 @@ class CreateCamionTable extends Migration
     public function up()
     {
         Schema::create('camion', function (Blueprint $table) {
-            $table->id();
             $table->integer('id_placa', 75)->unique();
             $table->string( 'placa_camion', 6);
             $table->string( 'marca', 45);
@@ -23,15 +22,6 @@ class CreateCamionTable extends Migration
             $table->integer( 'capacidad_toneladas', 15);
             $table->string( 'transporte_codigo', 15);
             $table->timestamps();
-
-
-            Schema::create('proveedor', function (Blueprint $table) {
-                $table->id();
-
-                $table->timestamps();
-
-
-
 
         });
     }
