@@ -14,14 +14,16 @@ class CreateCamionTable extends Migration
     public function up()
     {
         Schema::create('camion', function (Blueprint $table) {
-            $table->integer('id_placa', 75)->unique();
-            $table->string( 'placa_camion', 6);
+            $table->engine="InnoDB";
+            $table->id('id_placa')->unique();
+            $table->string( 'placa_camion', 6)->nullable();
             $table->string( 'marca', 45);
             $table->string( 'color', 25);
-            $table->date( 'modelo', 75);
-            $table->integer( 'capacidad_toneladas', 15);
-            $table->string( 'transporte_codigo', 15);
+            $table->date( 'modelo');
+            $table->integer('capacidad_toneladas');
+            $table->string( 'transporte_codigo', 45)->unsigned();
             $table->timestamps();
+            $table->foreign('transporte_codigo')->references('codigo')->on('transporte')->onDelete("cascade");
 
         });
     }
