@@ -7,6 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class transporteModel extends Model
 {
-    public $table='transporte';
+
     use HasFactory;
+//Relación de uno a muchos
+public function Camion(){
+    return $this->hasMany('App\Models\camionModel');
+
+}
+
 }

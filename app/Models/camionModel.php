@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class camionModel extends Model
 {
-    public $table='camion';
+
     use HasFactory;
+
+    //Relación uno a muchos (inversa)
+    public function Transporte(){
+        return $this->belongsTo('app\Models\transporteModel');
+
+
+    }
 }

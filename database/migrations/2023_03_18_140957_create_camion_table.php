@@ -21,9 +21,9 @@ class CreateCamionTable extends Migration
             $table->string( 'color', 25);
             $table->date( 'modelo');
             $table->integer('capacidad_toneladas');
-            $table->string( 'transporte_codigo', 45)->unsigned();
+            $table->unsignedBigInteger( 'transporte_codigo', 45)->nullable();
             $table->timestamps();
-            $table->foreign('transporte_codigo')->references('codigo')->on('transporte')->onDelete("cascade");
+            $table->foreign('transporte_codigo')->references('codigo')->on('transporte')->onDelete('set null');
 
         });
     }
